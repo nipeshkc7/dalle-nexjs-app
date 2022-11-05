@@ -1,0 +1,177 @@
+/* Base Styles */
+body {
+    background: #545454;
+  }
+  
+  .container {
+    margin-top: 28px;
+    max-height: 560px;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  /* SVG Styles */
+  #robot {
+    animation: fly-in 1s ease-out;
+    max-height: 560px;
+    width: 100%;
+  }
+  
+  .arm,
+  .leg {
+    animation: dangle 1s cubic-bezier(0.57, 0.19, 0.25, 0.75) 3s infinite;
+    transform-origin: center;
+  }
+  
+  .head {
+    animation: attach-head 1s linear;
+  }
+  
+  .flame {
+    animation: flicker 0.35s linear infinite;
+    transform-origin: 50% 50%;
+  }
+  
+  .lean {
+    animation: lean 1s linear;
+    transform-origin: 50% 0%;
+  }
+  
+  .levitate {
+    animation: levitate 1s cubic-bezier(0.57, 0.19, 0.25, 0.75) infinite;
+    transform-origin: 50% 50%;
+  }
+  
+  .smoke {
+    animation: smoke 0.25s linear infinite;
+    transform-origin: 50% 50%;
+  }
+  
+  .smoke-group {
+    animation: track-levitate 1s cubic-bezier(0.57, 0.19, 0.25, 0.75) infinite;
+    animation-delay: 0.25s;
+  }
+  
+  .delay-2 {
+    animation-delay: 0.06s;
+  }
+  
+  .delay-3 {
+    animation-delay: 0.09s;
+  }
+  
+  .delay-4 {
+    animation-delay: 0.12s;
+  }
+  
+  .delay-5 {
+    animation-delay: 0.15s;
+  }
+  
+  .delay-6 {
+    animation-delay: 0.18s;
+  }
+  
+  .delay-7 {
+    animation-delay: 0.21s;
+  }
+  
+  .delay-8 {
+    animation-delay: 0.24s;
+  }
+  
+  .delay-9 {
+    animation-delay: 0.27s;
+  }
+  
+  .delay-10 {
+    animation-delay: 0.3s;
+  }
+  
+  /* 
+    Flicker courtesy of:
+    https://codepen.io/ghen/pen/pvwOwM
+  */
+  @keyframes flicker {
+    0% {
+      transform: rotate(-1deg);
+    }
+    25% {
+      transform: rotate(1deg) scaleY(1.15);
+    }
+    50%, 100% {
+      transform: rotate(1deg);
+    }
+    75% {
+      transform: rotate(-2deg) scaleY(0.95);
+    }
+  }
+  @keyframes smoke {
+    from {
+      transform: scale(0.95);
+    }
+    to {
+      transform: scale(1.15);
+    }
+  }
+  /*
+    Rotating hover courtesy of:
+    http://lea.verou.me/2012/02/moving-an-element-along-a-circle/ 
+  */
+  @keyframes levitate {
+    from {
+      transform: rotate(0deg) translate(-15px) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translate(-15px) rotate(-360deg);
+    }
+  }
+  @keyframes track-levitate {
+    0%, 100% {
+      transform: translateX(-20px);
+    }
+    50% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes dangle {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    33% {
+      transform: rotate(10deg);
+    }
+    66% {
+      transform: rotate(-10deg);
+    }
+  }
+  @keyframes lean {
+    0%, 100% {
+      transform: rotate(0deg) translateX(0px);
+    }
+    20% {
+      transform: rotate(-30deg) translateX(-130px);
+    }
+    80% {
+      transform: rotate(-30deg) translateX(-130px);
+    }
+  }
+  @keyframes attach-head {
+    0%, 100% {
+      transform: translate(0px 0px);
+    }
+    20% {
+      transform: translate(-130px, 60px);
+    }
+    80% {
+      transform: translate(-130px, 60px);
+    }
+  }
+  @keyframes fly-in {
+    0% {
+      transform: translateX(2000px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
